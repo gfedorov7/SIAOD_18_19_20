@@ -69,12 +69,15 @@ public partial class Form1 : Form
 
     private void createQueue_Click(object sender, EventArgs e)
     {
+        clearTabs();
+        Array.Fill(A, 0);
+
         for (int i = 0; i < MAX_ELEMENTS; i++)
         {
             A[i] = rnd.Next(10, 100);
+            HeapUp(i); 
         }
 
-        clearTabs();
         ShowArrayAndQueue();
     }
 
@@ -126,10 +129,11 @@ public partial class Form1 : Form
         A[0] = A[last];
         A[last] = 0;
 
+        HeapDown(0, last);
+
         clearTabs();
         ShowArrayAndQueue();
     }
-
     private int findLastIndexElement()
     {
         for (int i = MAX_ELEMENTS-1; i >= 0; i--)
@@ -169,6 +173,8 @@ public partial class Form1 : Form
 
         A[newIndex] = (int)newNum.Value;
 
+        HeapUp(newIndex); 
+
         ShowArrayAndQueue();
 
         for (int i = MAX_ELEMENTS - 1; i >= 0; i--)
@@ -179,33 +185,6 @@ public partial class Form1 : Form
             }
     }
     
-    private void heapUp(int k)
-    {
-        while (k > 0 && A[(k - 1) / 2] < A[k])
-        {
-            (A[k], A[(k - 1) / 2]) = (A[(k - 1) / 2], A[k]);
-
-            k = (k - 1) / 2;
-        }
-    }
-
-    private void heapDown(int k, int N)
-    {
-        while (2 * k + 1 < N)
-        {
-            int j = 2 * k + 1;
-
-            if (j + 1 < N && A[j] < A[j + 1])
-                j++;
-
-            if (A[k] >= A[j])
-                break;
-
-            (A[k], A[j]) = (A[j], A[k]);
-            k = j;
-        }
-    }
-
     private void changePriority_Click(object sender, EventArgs e)
     {
         int index = (int)numericUpDown2.Value;
@@ -217,9 +196,45 @@ public partial class Form1 : Form
         if (A[index] == 0)
             return;
 
+        int old = A[index];
         A[index] = newPriority;
+
+        if (newPriority > old)
+            HeapUp(index);   
+        else
+            HeapDown(index, findLastIndexElement() + 1); 
 
         clearTabs();
         ShowArrayAndQueue();
+    }
+
+    private void HeapUp(int k)
+    {
+        while (k > 0 && A[(k - 1) / 2] < A[k])
+        {
+            int parent = (k - 1) / 2;
+
+            (A[parent], A[k]) = (A[k], A[parent]);
+
+            k = parent;
+        }
+    }
+    
+    private void HeapDown(int k, int size)
+    {
+        while (2 * k + 1 < size)
+        {
+            int j = 2 * k + 1; 
+
+            if (j + 1 < size && A[j] < A[j + 1])
+                j++; 
+
+            if (A[k] >= A[j])
+                break;
+
+            (A[k], A[j]) = (A[j], A[k]);
+
+            k = j;
+        }
     }
 }
