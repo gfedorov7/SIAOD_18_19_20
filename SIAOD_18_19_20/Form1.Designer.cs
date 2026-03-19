@@ -99,7 +99,7 @@ partial class Form1
         newNum.Location = new System.Drawing.Point(269, 47);
         newNum.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
         newNum.Name = "newNum";
-        newNum.Size = new System.Drawing.Size(63, 23);
+        newNum.Size = new System.Drawing.Size(63, 27);
         newNum.TabIndex = 4;
         newNum.Value = new decimal(new int[] { 10, 0, 0, 0 });
         // 
@@ -124,8 +124,9 @@ partial class Form1
         // numericUpDown2
         // 
         numericUpDown2.Location = new System.Drawing.Point(594, 46);
+        numericUpDown2.Maximum = new decimal(new int[] { 14, 0, 0, 0 });
         numericUpDown2.Name = "numericUpDown2";
-        numericUpDown2.Size = new System.Drawing.Size(58, 23);
+        numericUpDown2.Size = new System.Drawing.Size(58, 27);
         numericUpDown2.TabIndex = 7;
         // 
         // label2
@@ -138,9 +139,10 @@ partial class Form1
         // 
         // numericUpDown3
         // 
+        numericUpDown3.Increment = new decimal(new int[] { 10, 0, 0, 0 });
         numericUpDown3.Location = new System.Drawing.Point(730, 46);
         numericUpDown3.Name = "numericUpDown3";
-        numericUpDown3.Size = new System.Drawing.Size(58, 23);
+        numericUpDown3.Size = new System.Drawing.Size(58, 27);
         numericUpDown3.TabIndex = 9;
         // 
         // label3
@@ -158,6 +160,7 @@ partial class Form1
         dataGridView1.ColumnHeadersHeight = 20;
         dataGridView1.Location = new System.Drawing.Point(16, 119);
         dataGridView1.Name = "dataGridView1";
+        dataGridView1.RowHeadersWidth = 51;
         dataGridView1.Size = new System.Drawing.Size(752, 32);
         dataGridView1.TabIndex = 11;
         // 
@@ -176,6 +179,7 @@ partial class Form1
         dataGridView2.ColumnHeadersHeight = 20;
         dataGridView2.Location = new System.Drawing.Point(16, 193);
         dataGridView2.Name = "dataGridView2";
+        dataGridView2.RowHeadersWidth = 51;
         dataGridView2.Size = new System.Drawing.Size(752, 122);
         dataGridView2.TabIndex = 13;
         // 
@@ -185,6 +189,7 @@ partial class Form1
         dataGridView3.ColumnHeadersHeight = 20;
         dataGridView3.Location = new System.Drawing.Point(16, 355);
         dataGridView3.Name = "dataGridView3";
+        dataGridView3.RowHeadersWidth = 51;
         dataGridView3.Size = new System.Drawing.Size(752, 32);
         dataGridView3.TabIndex = 14;
         // 
@@ -209,7 +214,7 @@ partial class Form1
         // 
         // Form1
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         BackColor = System.Drawing.SystemColors.Control;
         ClientSize = new System.Drawing.Size(800, 450);
@@ -231,6 +236,7 @@ partial class Form1
         Controls.Add(clearQueue);
         Controls.Add(addNew);
         Location = new System.Drawing.Point(15, 15);
+        Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
         Text = "Федоров 24вп1";
         ((System.ComponentModel.ISupportInitialize)newNum).EndInit();
         ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();

@@ -74,9 +74,6 @@ public partial class Form1 : Form
             A[i] = rnd.Next(10, 100);
         }
 
-        for (int i = MAX_ELEMENTS / 2 - 1; i >= 0; i--)
-            heapDown(i, MAX_ELEMENTS);
-
         clearTabs();
         ShowArrayAndQueue();
     }
@@ -129,8 +126,6 @@ public partial class Form1 : Form
         A[0] = A[last];
         A[last] = 0;
 
-        heapDown(0, last);
-
         clearTabs();
         ShowArrayAndQueue();
     }
@@ -173,8 +168,6 @@ public partial class Form1 : Form
         int newIndex = lastIndex + 1;
 
         A[newIndex] = (int)newNum.Value;
-
-        heapUp(newIndex);
 
         ShowArrayAndQueue();
 
