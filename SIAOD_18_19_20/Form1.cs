@@ -217,16 +217,7 @@ public partial class Form1 : Form
         if (A[index] == 0)
             return;
 
-        int oldPriority = A[index];
-
         A[index] = newPriority;
-
-        int last = findLastIndexElement() + 1;
-
-        if (newPriority > oldPriority)
-            heapUp(index);
-        else
-            heapDown(index, last);
 
         clearTabs();
         ShowArrayAndQueue();
